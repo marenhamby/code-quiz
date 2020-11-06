@@ -30,10 +30,10 @@ var questions = [
             "Answer choice 1a",
             "Answer choice 2a",
             "Answer choice 3a",
-            "Answer choice 4a",
-        ]
-        answerIndex: 0
-    }
+            "Answer choice 4a"
+        ],
+        answerIndex: 0,
+    },
     {
         question: "Here is question number 2?",
         choices: [
@@ -41,9 +41,9 @@ var questions = [
             "Answer choice 2b",
             "Answer choice 3b",
             "Answer choice 4b",
-        ]
-        answerIndex: 0
-    }
+        ],
+        answerIndex: 0,
+    },
     {
         question: "Here is question number 3?",
         choices: [
@@ -51,9 +51,9 @@ var questions = [
             "Answer choice 2c",
             "Answer choice 3c",
             "Answer choice 4c",
-        ]
-        answerIndex: 0
-    }
+        ],
+        answerIndex: 0,
+    },
     {
         question: "Here is question number 4?",
         choices: [
@@ -61,9 +61,9 @@ var questions = [
             "Answer choice 2d",
             "Answer choice 3d",
             "Answer choice 4d",
-        ]
-        answerIndex: 0
-    }
+        ],
+        answerIndex: 0,
+    },
     {
         question: "Here is question number 5?",
         choices: [
@@ -71,12 +71,14 @@ var questions = [
             "Answer choice 2e",
             "Answer choice 3e",
             "Answer choice 4e",
-        ]
-        answerIndex: 0
+        ],
+        answerIndex: 0,
     }
 ]
 
 var currentQuestionIndex = 0;
+
+window.onload = startQuiz
 
 function startQuiz() {
     // hide the intro page;
@@ -84,8 +86,20 @@ function startQuiz() {
 }
 
 function displayQuestion() {
-    //...
-    var currentQuestion = questions[currentQuestionIndex]
+
+    document.getElementById("questionDisplay").textContent = questions[currentQuestionIndex].question;
+    
+    document.getElementById("answer1").children[0].textContent = questions[currentQuestionIndex].choices[0];
+    
+    document.getElementById("answer2").children[0].textContent = questions[currentQuestionIndex].choices[1];
+
+    document.getElementById("answer3").children[0].textContent = questions[currentQuestionIndex].choices[2];
+
+    document.getElementById("answer4").children[0].textContent = questions[currentQuestionIndex].choices[3];
+
+    document.getElementById("questionDisplay").textContent = questions[currentQuestionIndex].answerIndex
+    
+
     // display the questions
     //display the choices
     for (var i = 0; i < currentQuestion.choices.length; i++) {
@@ -96,5 +110,5 @@ function displayQuestion() {
 
 }
 
-startButton.addEventListener("click", startQuiz);
+// startButton.addEventListener("click", startQuiz);
 
