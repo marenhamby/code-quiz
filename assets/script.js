@@ -17,10 +17,11 @@
 //high scores page has a "go back" button and a "clear highscores" button
 //go back button brings the user back to the initial coding quiz page
 
-var startButton = document.getElementById("#startBtn");
-var introduction = document.getElementById("#introPage");
-var choiceList;
+var startButton = document.getElementById("startBtn");
+var introduction = document.getElementById("introPage");
+var buttonArea = document.getElementById("buttonArea")
 
+var timeLeft = 60
 
 
 var questions = [
@@ -80,6 +81,8 @@ var currentQuestionIndex = 0;
 
 window.onload = resetPage()
 
+
+
 function resetPage() {
     // hide the quiz question, display the intro;
     document.getElementById("quizContent").style.display = "none";
@@ -87,6 +90,7 @@ function resetPage() {
 }
 
 function startQuiz() {
+    console.log("test")
     // hide the intro page, display the quiz question;
     document.getElementById("introPage").style.display = "none";
     document.getElementById("quizContent").style.display = "block";
@@ -99,44 +103,38 @@ function displayQuestion() {
     var currentQuestion = questions[currentQuestionIndex];
     // display the questions
     //display the choices
+    for (let i = 0; i < questions[currentQuestionIndex].choices.length; i++) {
+        
+        document.getElementById("answer"+(i+1)).children[0].textContent = questions[currentQuestionIndex].choices[i];
+        
+    }
     
     document.getElementById("questionDisplay").textContent = questions[currentQuestionIndex].question;
-    
-    document.getElementById("answer1").children[0].textContent = questions[currentQuestionIndex].choices[0];
-    
-    document.getElementById("answer2").children[0].textContent = questions[currentQuestionIndex].choices[1];
 
-    document.getElementById("answer3").children[0].textContent = questions[currentQuestionIndex].choices[2];
 
-    document.getElementById("answer4").children[0].textContent = questions[currentQuestionIndex].choices[3];
 
-    var choiceList = document.querySelectorAll(".btn");
-    
-    // for (var i = 0; i < currentQuestion.choices.length; i++) {
-    //     var choice = document.createElement("li")
-    //     choice.setAttribute("id", i);
-    //append choice to list
+
 };
 
-// document.addEventListener('click', function(e){
-//     if(e.target.tagName=="BUTTON"){
-//      alert("startbutton")
-//      startQuiz()
-//     }
-//   })
 
-// startButton.addEventListener("click", startQuiz);
 
-document.addEventListener('click', function(e){
-    if(e.target.tagName=="BUTTON"){
-     alert("button")
-        answerChosen()
+startButton.addEventListener("click", startQuiz);
+
+
+
+function answerChosen(guess) {
+    console.log(guess)
+    if(questions[currentQuestionIndex].answerIndex !== parseInt(guess)){
+        timeLeft -= 10
+        console.log("you are wrong")
     }
-  })
-
-function answerChosen(event) {
     currentQuestionIndex++;
     displayQuestion();
 };
 
+buttonArea.addEventListener("click", function(e){
+    if(e.target.matches("button")){
+        answerChosen(e.target.value)
+    }
+})
 
