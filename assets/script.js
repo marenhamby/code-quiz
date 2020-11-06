@@ -17,6 +17,12 @@
 //high scores page has a "go back" button and a "clear highscores" button
 //go back button brings the user back to the initial coding quiz page
 
+var startButton = document.getElementById("#startBtn")
+var introduction = document.getElementById("#introPage")
+
+
+
+
 var questions = [
     {
         question: "Here is question number 1?",
@@ -72,16 +78,23 @@ var questions = [
 
 var currentQuestionIndex = 0;
 
+function startQuiz() {
+    // hide the intro page;
+    displayQuestion()
+}
+
 function displayQuestion() {
     //...
     var currentQuestion = questions[currentQuestionIndex]
     // display the questions
     //display the choices
-    for (var i=0; i<currentQuestion.choices.length; i++) {
+    for (var i = 0; i < currentQuestion.choices.length; i++) {
         var choice = document.createElement("li")
         choice.setAttribute("id", i);
         //append choice to list
-    } 
+    }
 
 }
+
+startButton.addEventListener("click", startQuiz);
 
