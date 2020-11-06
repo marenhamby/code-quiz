@@ -7,6 +7,16 @@
 // when you click the wrong answer, the timer subtracts time and the next question and responses are displayed
 // **not in the requirements: have the page indicate if the selected response was correct or not
 
+// when time runs out OR when all questions have been answered, 1) the all done text should display 2) the time left should be noted as the score
+// the all done text should include a text entry bos with a submit button
+// the submit button should 1) cause the entry to be appended to the final score, 2) cause the entry and score to be saved to local storage, 3) bring the user to the high scores page
+// the saved entries should be displayed from local storage into a list
+
+//high scores page does not have link to page or timer displayed
+//high scores page shows an ordered list of the previous initials and scores
+//high scores page has a "go back" button and a "clear highscores" button
+//go back button brings the user back to the initial coding quiz page
+
 var questions = [
     {
         question: "Here is question number 1?",
@@ -60,14 +70,18 @@ var questions = [
     }
 ]
 
+var currentQuestionIndex = 0;
 
+function displayQuestion() {
+    //...
+    var currentQuestion = questions[currentQuestionIndex]
+    // display the questions
+    //display the choices
+    for (var i=0; i<currentQuestion.choices.length; i++) {
+        var choice = document.createElement("li")
+        choice.setAttribute("id", i);
+        //append choice to list
+    } 
 
-// when time runs out OR when all questions have been answered, 1) the all done text should display 2) the time left should be noted as the score
-// the all done text should include a text entry bos with a submit button
-// the submit button should 1) cause the entry to be appended to the final score, 2) cause the entry and score to be saved to local storage, 3) bring the user to the high scores page
-// the saved entries should be displayed from local storage into a list
+}
 
-//high scores page does not have link to page or timer displayed
-//high scores page shows an ordered list of the previous initials and scores
-//high scores page has a "go back" button and a "clear highscores" button
-//go back button brings the user back to the initial coding quiz page
