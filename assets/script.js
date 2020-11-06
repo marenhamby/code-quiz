@@ -108,13 +108,16 @@ function displayQuestion() {
     //append choice to list
 };
 
+document.addEventListener('click', function(e){
+    if(e.target.tagName=="BUTTON"){
+     answerChosen()
+    }
+  })
 
 function answerChosen(event) {
     currentQuestionIndex++;
     displayQuestion();
 };
-
-choiceList.addEventListener("click", answerChosen);
 
 // startButton.addEventListener("click", startQuiz);
 
