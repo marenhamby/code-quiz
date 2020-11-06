@@ -86,7 +86,9 @@ function startQuiz() {
 }
 
 function displayQuestion() {
-
+    var currentQuestion = questions[currentQuestionIndex];
+    // display the questions
+    //display the choices
     document.getElementById("questionDisplay").textContent = questions[currentQuestionIndex].question;
     
     document.getElementById("answer1").children[0].textContent = questions[currentQuestionIndex].choices[0];
@@ -97,18 +99,20 @@ function displayQuestion() {
 
     document.getElementById("answer4").children[0].textContent = questions[currentQuestionIndex].choices[3];
 
-    document.getElementById("questionDisplay").textContent = questions[currentQuestionIndex].answerIndex
-    
 
-    // display the questions
-    //display the choices
-    for (var i = 0; i < currentQuestion.choices.length; i++) {
-        var choice = document.createElement("li")
-        choice.setAttribute("id", i);
-        //append choice to list
-    }
-
+    // for (var i = 0; i < currentQuestion.choices.length; i++) {
+    //     var choice = document.createElement("li")
+    //     choice.setAttribute("id", i);
+    //append choice to list
 }
 
+function answerChosen(event) {
+    currentQuestionIndex++;
+    displayQuestion();
+}
+
+choiceList.addEventListener("click", answerChosen)
+
 // startButton.addEventListener("click", startQuiz);
+
 
