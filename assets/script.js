@@ -87,6 +87,7 @@ function resetPage() {
     // hide the quiz question, display the intro;
     document.getElementById("quizContent").style.display = "none";
     document.getElementById("introPage").style.display = "block";
+    document.getElementById("finalPage").style.display = "none";
 }
 
 function startQuiz() {
@@ -106,17 +107,16 @@ function displayQuestion() {
     for (let i = 0; i < questions[currentQuestionIndex].choices.length; i++) {
         
         document.getElementById("answer"+(i+1)).children[0].textContent = questions[currentQuestionIndex].choices[i];
-        
+
     }
     
     document.getElementById("questionDisplay").textContent = questions[currentQuestionIndex].question;
-
-
-
-
 };
 
-
+function displayEntry() {
+    document.getElementById("finalPage").style.display = "block";
+    document.getElementById("quizContent").style.display = "none";
+}
 
 startButton.addEventListener("click", startQuiz);
 
@@ -129,7 +129,12 @@ function answerChosen(guess) {
         console.log("you are wrong")
     }
     currentQuestionIndex++;
-    displayQuestion();
+    if (currentQuestionIndex > questions.length -1) {
+        displayEntry();
+    } else {
+        displayQuestion();
+    }
+
 };
 
 buttonArea.addEventListener("click", function(e){
