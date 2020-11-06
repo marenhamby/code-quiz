@@ -17,9 +17,9 @@
 //high scores page has a "go back" button and a "clear highscores" button
 //go back button brings the user back to the initial coding quiz page
 
-var startButton = document.getElementById("#startBtn")
-var introduction = document.getElementById("#introPage")
-
+var startButton = document.getElementById("#startBtn");
+var introduction = document.getElementById("#introPage");
+var choiceList;
 
 
 
@@ -73,7 +73,7 @@ var questions = [
             "Answer choice 4e",
         ],
         answerIndex: 0,
-    }
+    },
 ]
 
 var currentQuestionIndex = 0;
@@ -83,12 +83,13 @@ window.onload = startQuiz
 function startQuiz() {
     // hide the intro page;
     displayQuestion()
-}
+};
 
 function displayQuestion() {
     var currentQuestion = questions[currentQuestionIndex];
     // display the questions
     //display the choices
+    
     document.getElementById("questionDisplay").textContent = questions[currentQuestionIndex].question;
     
     document.getElementById("answer1").children[0].textContent = questions[currentQuestionIndex].choices[0];
@@ -99,19 +100,21 @@ function displayQuestion() {
 
     document.getElementById("answer4").children[0].textContent = questions[currentQuestionIndex].choices[3];
 
-
+    var choiceList = document.querySelectorAll(".btn");
+    
     // for (var i = 0; i < currentQuestion.choices.length; i++) {
     //     var choice = document.createElement("li")
     //     choice.setAttribute("id", i);
     //append choice to list
-}
+};
+
 
 function answerChosen(event) {
     currentQuestionIndex++;
     displayQuestion();
-}
+};
 
-choiceList.addEventListener("click", answerChosen)
+choiceList.addEventListener("click", answerChosen);
 
 // startButton.addEventListener("click", startQuiz);
 
