@@ -19,9 +19,9 @@
 
 var startButton = document.getElementById("startBtn");
 var introduction = document.getElementById("introPage");
-var buttonArea = document.getElementById("buttonArea")
-
-var timeLeft = 60
+var buttonArea = document.getElementById("buttonArea");
+var timerEl = document.getElementById("timerDisplay")
+var timer 
 
 
 var questions = [
@@ -90,6 +90,7 @@ function resetPage() {
     document.getElementById("finalPage").style.display = "none";
 }
 
+
 function startQuiz() {
     console.log("test")
     // hide the intro page, display the quiz question;
@@ -97,8 +98,25 @@ function startQuiz() {
     document.getElementById("quizContent").style.display = "block";
     
     // run the function to pull in the correct content into the quiz content
+    startTimer()
     displayQuestion()
 };
+
+var timeLeft = 60
+
+function startTimer() {
+ timer = setInterval(function() {
+    console.log("this is my time left"+timeLeft)
+    timeLeft--;
+    timerEl.textContent = "Timer: " + timeLeft;
+
+    if (timeLeft === 0) {
+        displayEntry()
+        clearInterval(timer)
+    }
+ }, 1000);
+}
+
 
 function displayQuestion() {
     var currentQuestion = questions[currentQuestionIndex];
