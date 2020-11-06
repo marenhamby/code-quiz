@@ -78,10 +78,20 @@ var questions = [
 
 var currentQuestionIndex = 0;
 
-window.onload = startQuiz
+window.onload = resetPage()
+
+function resetPage() {
+    // hide the quiz question, display the intro;
+    document.getElementById("quizContent").style.display = "none";
+    document.getElementById("introPage").style.display = "block";
+}
 
 function startQuiz() {
-    // hide the intro page;
+    // hide the intro page, display the quiz question;
+    document.getElementById("introPage").style.display = "none";
+    document.getElementById("quizContent").style.display = "block";
+    
+    // run the function to pull in the correct content into the quiz content
     displayQuestion()
 };
 
@@ -108,9 +118,19 @@ function displayQuestion() {
     //append choice to list
 };
 
+// document.addEventListener('click', function(e){
+//     if(e.target.tagName=="BUTTON"){
+//      alert("startbutton")
+//      startQuiz()
+//     }
+//   })
+
+// startButton.addEventListener("click", startQuiz);
+
 document.addEventListener('click', function(e){
     if(e.target.tagName=="BUTTON"){
-     answerChosen()
+     alert("button")
+        answerChosen()
     }
   })
 
@@ -118,7 +138,5 @@ function answerChosen(event) {
     currentQuestionIndex++;
     displayQuestion();
 };
-
-// startButton.addEventListener("click", startQuiz);
 
 
