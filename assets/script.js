@@ -32,54 +32,54 @@ initialStoragePull();
 
 var questions = [
     {
-        question: "Here is question number 1?",
+        question: "What does JS stand for in coding language?",
         choices: [
-            "Answer choice 1a",
-            "Answer choice 2a",
-            "Answer choice 3a",
-            "Answer choice 4a"
+            "JavaShop",
+            "JavaShape",
+            "JavaScript",
+            "JumpingShape"
+        ],
+        answerIndex: 2,
+    },
+    {
+        question: "What does CSS stand for in coding?",
+        choices: [
+            "Concise Styling Source",
+            "Cascading Style Sheets",
+            "Coding Style Support",
+            "Coding Support Sheets",
+        ],
+        answerIndex: 1,
+    },
+    {
+        question: "What's the name of the online source that helps with formatting?",
+        choices: [
+            "Bootstrap",
+            "Bandsong",
+            "Booghost",
+            "Beststyle",
         ],
         answerIndex: 0,
     },
     {
-        question: "Here is question number 2?",
+        question: "What is the type of development called that involves working on the front and back end of a webpage?",
         choices: [
-            "Answer choice 1b",
-            "Answer choice 2b",
-            "Answer choice 3b",
-            "Answer choice 4b",
+            "Front-side",
+            "Full-shot",
+            "Fast-shop",
+            "Full-stack",
         ],
-        answerIndex: 0,
+        answerIndex: 3,
     },
     {
-        question: "Here is question number 3?",
+        question: "What does HTML stand for in coding?",
         choices: [
-            "Answer choice 1c",
-            "Answer choice 2c",
-            "Answer choice 3c",
-            "Answer choice 4c",
+            "Hashtag Moves Laterally",
+            "Hover Tags Mine Language ",
+            "Hypertext Markup Language",
+            "Holding Text Marks Locally",
         ],
-        answerIndex: 0,
-    },
-    {
-        question: "Here is question number 4?",
-        choices: [
-            "Answer choice 1d",
-            "Answer choice 2d",
-            "Answer choice 3d",
-            "Answer choice 4d",
-        ],
-        answerIndex: 0,
-    },
-    {
-        question: "Here is question number 5?",
-        choices: [
-            "Answer choice 1e",
-            "Answer choice 2e",
-            "Answer choice 3e",
-            "Answer choice 4e",
-        ],
-        answerIndex: 0,
+        answerIndex: 2,
     },
 ]
 
