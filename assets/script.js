@@ -88,8 +88,8 @@ var currentQuestionIndex = 0;
 window.onload = resetPage()
 
 function initialStoragePull() {
-//get items that have already been in local storage
-//parse the string into an object
+    //get items that have already been in local storage
+    //parse the string into an object
     var storedScores = JSON.parse(localStorage.getItem("scores"));
 
     if (storedScores !== null) {
@@ -179,23 +179,23 @@ function answerChosen(guess) {
 
 initialForm.addEventListener("click", function (e) {
     e.preventDefault();
-    
+
     if (e.target.matches("button")) {
 
         //trim any extra spaces on either side of the text
         var initialsText = initialInput.value.trim();
-    
+
         // if field is blank, do nothing
         if (initialsText === "") {
             return;
         }
-    
+
         //add to array
-        scores.push({intials:initialsText, score: timeLeft});
-    
+        scores.push({ intials: initialsText, score: timeLeft });
+
         //clear the field
         initialInput.value = "";
-    
+
         //store in local storage
         localStorage.setItem("scores", JSON.stringify(scores))
         window.location.href = "high-scores.html"

@@ -10,7 +10,7 @@ function initialStoragePull() {
         return
     }
 
-    for (let i=0; i< storedScores.length; i++) {
+    for (let i = 0; i < storedScores.length; i++) {
         var listItem = document.createElement("li")
         listItem.textContent = "Initials: " + storedScores[i].intials + " Score: " + storedScores[i].score
         list.appendChild(listItem)
