@@ -191,7 +191,7 @@ initialForm.addEventListener("click", function (e) {
         }
     
         //add to array
-        scores.push(initialsText);
+        scores.push({intials:initialsText, score: timeLeft});
     
         //clear the field
         initialInput.value = "";
