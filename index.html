@@ -17,7 +17,7 @@
                 <button class="btn btn-outline-info" id="scoresBtn" type="button">High Scores</button>
             </form>
             <span class="navbar-text" id="timerDisplay">
-                Timer: 
+                Timer: 60
             </span>
         </nav>
     </header>
@@ -76,9 +76,10 @@
         <div class="row">
             <div class="col">
                 <h4 style="text-align:center;">All done!</h4>
-                <form>
+                <h5>Your final score is: <span id="timeLeft">0</span></h5>
+                <form id="initialsForm">
                     <div class="form-group">
-                      <label for="formGroupExampleInput">Your final score is:</label>
+                      <label for="formGroupExampleInput">Add your initials here:</label>
                       <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your initials here">
                     </div>
                     <button type="button" class="btn btn-info">Submit</button>

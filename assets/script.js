@@ -21,8 +21,12 @@ var startButton = document.getElementById("startBtn");
 var introduction = document.getElementById("introPage");
 var buttonArea = document.getElementById("buttonArea");
 var timerEl = document.getElementById("timerDisplay")
-var timer 
+var timer
+var timeLeftSpan = document.querySelector("#timeLeft")
+var initialInput = document.querySelector("formGroupExampleInput")
+var initialForm = document.querySelector("initialsForm")
 
+var scores = [];
 
 var questions = [
     {
@@ -82,7 +86,6 @@ var currentQuestionIndex = 0;
 window.onload = resetPage()
 
 
-
 function resetPage() {
     // hide the quiz question, display the intro;
     document.getElementById("quizContent").style.display = "none";
@@ -96,7 +99,7 @@ function startQuiz() {
     // hide the intro page, display the quiz question;
     document.getElementById("introPage").style.display = "none";
     document.getElementById("quizContent").style.display = "block";
-    
+
     // run the function to pull in the correct content into the quiz content
     startTimer()
     displayQuestion()
@@ -105,29 +108,34 @@ function startQuiz() {
 var timeLeft = 60
 
 function startTimer() {
- timer = setInterval(function() {
-    console.log("this is my time left"+timeLeft)
-    timeLeft--;
-    timerEl.textContent = "Timer: " + timeLeft;
+    timer = setInterval(function () {
+        console.log("this is my time left" + timeLeft)
+        timeLeft--;
+        timerEl.textContent = "Timer: " + timeLeft;
 
-    if (timeLeft === 0) {
-        displayEntry()
-        clearInterval(timer)
-    }
- }, 1000);
+        if (timeLeft === 0) {
+            clearInterval(timer)
+            displayEntry()
+        }
+    }, 1000);
 }
 
+function displayTime() {
+    timeLeftSpan.textContent = timeLeft
+    clearInterval(timer)
+    timerEl.textContent = "Timer: 0"
+}
 
 function displayQuestion() {
     var currentQuestion = questions[currentQuestionIndex];
     // display the questions
     //display the choices
     for (let i = 0; i < questions[currentQuestionIndex].choices.length; i++) {
-        
-        document.getElementById("answer"+(i+1)).children[0].textContent = questions[currentQuestionIndex].choices[i];
+
+        document.getElementById("answer" + (i + 1)).children[0].textContent = questions[currentQuestionIndex].choices[i];
 
     }
-    
+
     document.getElementById("questionDisplay").textContent = questions[currentQuestionIndex].question;
 };
 
@@ -136,27 +144,54 @@ function displayEntry() {
     document.getElementById("quizContent").style.display = "none";
 }
 
+
+
 startButton.addEventListener("click", startQuiz);
 
 
 
 function answerChosen(guess) {
     console.log(guess)
-    if(questions[currentQuestionIndex].answerIndex !== parseInt(guess)){
+    if (questions[currentQuestionIndex].answerIndex !== parseInt(guess)) {
         timeLeft -= 10
         console.log("you are wrong")
     }
     currentQuestionIndex++;
-    if (currentQuestionIndex > questions.length -1) {
+    if (currentQuestionIndex > questions.length - 1) {
         displayEntry();
+        displayTime();
     } else {
         displayQuestion();
     }
 
 };
 
-buttonArea.addEventListener("click", function(e){
-    if(e.target.matches("button")){
+// initialForm.addEventListener("click", function (event) {
+//     event.preventDefault();
+    
+//     if (e.target.matches("button")) {
+
+//         //trim any extra spaces on either side of the text
+//         var initialsText = initialInput.value.trim();
+    
+//         // if field is blank, do nothing
+//         if (initialsText === "") {
+//             return;
+//         }
+    
+//         //add to array
+//         scores.push(initialsText);
+    
+//         //clear the field
+//         initialInput.value = "";
+    
+//         //store in local storage
+//         localStorage.setItem("scores", JSON.stringify(scores))
+//     }
+// })
+
+buttonArea.addEventListener("click", function (e) {
+    if (e.target.matches("button")) {
         answerChosen(e.target.value)
     }
 })
