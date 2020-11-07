@@ -1,11 +1,12 @@
 var list = document.getElementById("scoresList");
+var clear = document.getElementById("clearBtn");
 
 var scores = [];
 
 function initialStoragePull() {
     var storedScores = JSON.parse(localStorage.getItem("scores"));
 
-    if (storedScores !== null) {
+    if (storedScores === null) {
         return
     }
 
@@ -15,6 +16,7 @@ function initialStoragePull() {
         list.appendChild(listItem)
     }
 }
+
 
 
 initialStoragePull();
