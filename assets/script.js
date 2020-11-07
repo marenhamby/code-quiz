@@ -198,6 +198,7 @@ initialForm.addEventListener("click", function (e) {
     
         //store in local storage
         localStorage.setItem("scores", JSON.stringify(scores))
+        window.location.href = "high-scores.html"
     }
 })
 
