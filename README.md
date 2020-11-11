@@ -12,4 +12,4 @@ https://marenhamby.github.io/code-quiz/
 
 ## Screenshot
 Here is a screenshot of what the page looks like:
-![quiz image](./assets/quiz-image.png)
+![quiz image](./assets/quiz-image.PNG)
